@@ -1,13 +1,14 @@
-import express,{Express, Request, Response} from "express";
+import express,{Express} from "express";
+import { connectDb } from "./configurations/connectDb";
 
 const app:Express = express();  //Types figure out easily
-
 app.use(express.json());
 
+//connecting to db\
+connectDb();
 
-app.get('/',(req:Request,res:Response)=>{
-    res.send("Hello from Express + Ts and Nodemon Implemented and voila");
-});
+//Route configuration
+
 
 app.listen(8080,()=>{
     console.log("Server is running on port 8080");
